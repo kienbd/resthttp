@@ -3,6 +3,7 @@ module Resthttp
 
     def get_request url,args={}
       begin
+				url = url + args.to_query
         uri = URI.parse(url)
         #unless args.empty?
         #  uri.query = URI.encode_www_form( args )
