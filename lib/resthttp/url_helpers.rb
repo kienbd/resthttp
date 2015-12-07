@@ -3,6 +3,7 @@ module Resthttp
 
     def get_request url,args={}
       begin
+				url += "?" unless url[-1] == '?'
 				url = url + args.to_query
         uri = URI.parse(url)
         #unless args.empty?
