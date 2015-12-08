@@ -11,6 +11,7 @@ module Resthttp
         #  resp = Net::HTTP.get_response(uri)
         #end
         http = Net::HTTP.new(uri.host, uri.port)
+				http.use_ssl = true if uri.scheme == 'https'
         req = Net::HTTP::Get.new(uri, {'Content-Type' =>'application/json'})
         if args["token"]
           req.add_field("X-API-EMAIL", args["token"]["user"]["email"])
